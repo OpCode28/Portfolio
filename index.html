@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Om Prakash Samal &mdash; AI/ML Developer &bull; IoT Engineer &bull; Founder</title>
+  <meta name="description" content="Personal portfolio of Om Prakash Samal — AI/ML Developer, IoT Engineer, Full-Stack Developer, and Startup Co-Founder. B.Tech CSE (8.47 CGPA) at BPUT Rourkela." />
+  <meta name="keywords" content="Om Prakash Samal, AI ML Engineer, IoT Developer, Embedded Systems, ESP32, WiFi CSI, SouryaNova, AkashVahini, DRDO Intern" />
+  <meta name="author" content="Om Prakash Samal" />
+  
+  <!-- Fonts: Plus Jakarta Sans, Syne, Instrument Serif, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Tailwind CSS via CDN with custom palette -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cream: {
+              50: '#FAF7F2',
+              100: '#F5F0E6',
+              200: '#EFE8DC',
+              300: '#E5DCCE',
+              border: '#E3DAC9'
+            },
+            espresso: {
+              950: '#110D0A',
+              900: '#17120E',
+              850: '#1E1813',
+              800: '#251F19',
+              700: '#352D25',
+              border: '#2C231B',
+              muted: '#9E9287'
+            },
+            amberAccent: {
+              DEFAULT: '#F5A623',
+              hover: '#E2971A',
+              soft: 'rgba(245, 166, 35, 0.12)',
+              warm: '#E8633A'
+            },
+            ink: {
+              900: '#171412',
+              800: '#2D2824',
+              600: '#5E564F',
+              400: '#8E847C'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            syne: ['"Syne"', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          boxShadow: {
+            'card-soft': '0 12px 36px -8px rgba(23, 18, 14, 0.08)',
+            'card-dark': '0 20px 48px -12px rgba(0, 0, 0, 0.65)',
+            'glow-amber': '0 10px 30px -5px rgba(245, 166, 35, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-cream-100 text-ink-900 font-sans antialiased selection:bg-amberAccent/30 selection:text-espresso-950 overflow-x-hidden relative">
+
+  <!-- Subtle Paper Grain Background Layer -->
+  <div class="grain-overlay pointer-events-none fixed inset-0 z-0 opacity-25"></div>
+
+  <!-- ==================== STICKY NAV BAR ==================== -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto flex items-center justify-between bg-cream-50/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-cream-border shadow-card-soft">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-2.5 group">
+        <div class="w-8 h-8 rounded-full bg-espresso-900 flex items-center justify-center text-amberAccent font-syne font-bold text-xs shadow-sm group-hover:scale-105 transition">
+          OP
+        </div>
+        <div class="flex flex-col">
+          <span class="font-syne font-bold text-xs tracking-wider text-espresso-900 uppercase">Om Prakash Samal</span>
+          <span class="text-[9px] font-mono text-ink-400 tracking-wider">AI &bull; IOT &bull; DEV</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-ink-600">
+        <a href="#about" class="hover:text-espresso-900 transition">About</a>
+        <a href="#services" class="hover:text-espresso-900 transition">What I Do</a>
+        <a href="#projects" class="hover:text-espresso-900 transition">Selected Work</a>
+        <a href="#skills" class="hover:text-espresso-900 transition">Tech Stack</a>
+        <a href="#experience" class="hover:text-espresso-900 transition">Experience</a>
+        <a href="#founder" class="hover:text-espresso-900 transition">Startup</a>
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openResumeModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-espresso-900 border border-cream-border hover:border-amberAccent hover:bg-white transition shadow-sm">
+          <i class="fa-solid fa-file-pdf text-amberAccent"></i>
+          <span>Resume (8.47 CGPA)</span>
+        </button>
+        <a href="#contact" class="px-4 py-1.5 rounded-full text-xs font-bold bg-espresso-900 text-cream-50 hover:bg-espresso-800 transition shadow-sm flex items-center gap-1.5">
+          <span>Let's Connect</span>
+          <i class="fa-solid fa-arrow-right text-[10px] text-amberAccent"></i>
+        </a>
+        <button id="mobile-toggle" class="md:hidden p-1.5 text-espresso-900 focus:outline-none" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden max-w-7xl mx-auto mt-2 bg-cream-50 border border-cream-border rounded-2xl p-4 shadow-card-soft flex flex-col gap-2.5 text-xs font-semibold text-ink-800">
+      <a href="#about" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">About</a>
+      <a href="#services" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">What I Do</a>
+      <a href="#projects" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">Selected Work</a>
+      <a href="#skills" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">Tech Stack</a>
+      <a href="#experience" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">Experience</a>
+      <a href="#founder" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">Startup (AkashVahini)</a>
+      <a href="#contact" class="py-1.5 px-3 rounded-lg hover:bg-cream-200 mobile-link">Contact</a>
+    </div>
+  </header>
+
+
+  <!-- ==================== HERO SECTION (WARM CREAM & ORGANIC PORTRAIT) ==================== -->
+  <section id="hero" class="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      
+      <!-- Left Hero Text & Credibility -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Small Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream-200/80 border border-cream-border text-espresso-900 text-xs font-mono font-medium">
+          <span class="w-2 h-2 rounded-full bg-amberAccent"></span>
+          <span>Computer Science & Engineering &bull; BPUT Rourkela</span>
+        </div>
+
+        <!-- Main Heading -->
+        <div class="space-y-2">
+          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-syne font-extrabold text-espresso-950 tracking-tight leading-[1.05]">
+            Hi, I'm <br class="hidden sm:inline" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-espresso-950 via-espresso-800 to-amberAccent-warm">
+              Om Prakash
+            </span>
+          </h1>
+          <p class="text-sm sm:text-base font-semibold text-espresso-800 flex items-center flex-wrap gap-2 pt-1">
+            <span>AI/ML Developer</span>
+            <span class="text-amberAccent">&bull;</span>
+            <span>IoT Engineer</span>
+            <span class="text-amberAccent">&bull;</span>
+            <span>Full-Stack Developer</span>
+            <span class="text-amberAccent">&bull;</span>
+            <span class="text-ink-600">Startup Co-Founder</span>
+          </p>
+        </div>
+
+        <!-- Short Description -->
+        <p class="text-base sm:text-lg text-ink-600 font-normal leading-relaxed max-w-xl">
+          I build intelligent systems that connect <strong class="text-espresso-950 font-semibold">Artificial Intelligence</strong>, <strong class="text-espresso-950 font-semibold">IoT</strong>, <strong class="text-espresso-950 font-semibold">software</strong>, and <strong class="text-espresso-950 font-semibold">real-world problems</strong>.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-3.5 pt-2">
+          <a href="#projects" class="px-6 py-3.5 rounded-full bg-espresso-900 hover:bg-espresso-800 text-cream-50 font-bold text-xs uppercase tracking-wider transition shadow-card-soft hover:shadow-card-dark flex items-center gap-2">
+            <span>View My Work</span>
+            <i class="fa-solid fa-arrow-down text-amberAccent"></i>
+          </a>
+          <a href="#contact" class="px-6 py-3.5 rounded-full bg-cream-50 hover:bg-white text-espresso-900 border border-cream-border font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2">
+            <span>Let's Connect</span>
+            <i class="fa-solid fa-arrow-right text-amberAccent"></i>
+          </a>
+          <button onclick="openResumeModal()" class="px-4 py-3.5 rounded-full bg-transparent hover:bg-cream-200 text-ink-800 text-xs font-mono transition">
+            <i class="fa-solid fa-download mr-1"></i> CV (PDF)
+          </button>
+        </div>
+
+        <!-- Credibility / Stats Section (Including verified 8.47 CGPA) -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-cream-border">
+          <div class="bg-cream-50/90 border border-cream-border rounded-2xl p-3 text-center shadow-sm">
+            <div class="font-syne text-xl sm:text-2xl font-bold text-espresso-950">8.47</div>
+            <div class="text-[10px] font-mono uppercase text-ink-400 mt-0.5">B.Tech CGPA</div>
+          </div>
+          <div class="bg-cream-50/90 border border-cream-border rounded-2xl p-3 text-center shadow-sm">
+            <div class="font-syne text-xl sm:text-2xl font-bold text-amberAccent">10+</div>
+            <div class="text-[10px] font-mono uppercase text-ink-400 mt-0.5">Projects Built</div>
+          </div>
+          <div class="bg-cream-50/90 border border-cream-border rounded-2xl p-3 text-center shadow-sm">
+            <div class="font-syne text-xl sm:text-2xl font-bold text-espresso-950">4+</div>
+            <div class="text-[10px] font-mono uppercase text-ink-400 mt-0.5">Hackathon Wins</div>
+          </div>
+          <div class="bg-cream-50/90 border border-cream-border rounded-2xl p-3 text-center shadow-sm">
+            <div class="font-syne text-xl sm:text-2xl font-bold text-amberAccent">Ex-DRDO</div>
+            <div class="text-[10px] font-mono uppercase text-ink-400 mt-0.5">Research Intern</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Organic Hero Portrait & Floating Badges -->
+      <div class="lg:col-span-5 flex items-center justify-center relative py-6">
+        
+        <!-- Organic Rounded Shape Container with Portrait Photo -->
+        <div class="relative w-72 h-[420px] sm:w-88 sm:h-[460px] md:w-96 md:h-[490px] rounded-[3rem] bg-gradient-to-b from-espresso-850 via-espresso-900 to-espresso-950 p-2 shadow-card-dark flex flex-col justify-between overflow-hidden border border-espresso-border group">
+          
+          <!-- Soft Oval Warm Beige Shape Centered Behind Portrait for Black Shirt Contrast -->
+          <div class="absolute top-[16%] left-1/2 -translate-x-1/2 w-[220px] sm:w-[260px] md:w-[290px] h-[270px] sm:h-[310px] md:h-[340px] rounded-[50%] bg-gradient-to-b from-[#eddcc8]/40 via-[#dfc4a8]/30 to-[#c9a785]/15 blur-[20px] pointer-events-none z-0"></div>
+          <div class="absolute top-[20%] left-1/2 -translate-x-1/2 w-[180px] sm:w-[220px] md:w-[250px] h-[230px] sm:h-[270px] md:h-[290px] rounded-[50%] bg-[#ead7c3]/35 blur-[6px] pointer-events-none z-0"></div>
+
+          <!-- Top Inner Card Header -->
+          <div class="relative z-20 flex items-center justify-between text-[11px] font-mono text-cream-200/85 px-4 pt-3">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amberAccent animate-pulse"></span> Active Engineer</span>
+            <span class="text-amberAccent font-bold">@OpCode28</span>
+          </div>
+
+          <!-- Portrait Photo Container: Focused on Face & Torso -->
+          <div class="relative z-10 w-full flex-1 flex items-end justify-center overflow-hidden px-2 pt-2">
+            <img 
+              src="profile.png" 
+              alt="Om Prakash Samal" 
+              class="w-full h-full object-cover object-top drop-shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]" 
+            />
+          </div>
+
+          <!-- Bottom Card Overlay Footer -->
+          <div class="relative z-20 bg-espresso-950/85 backdrop-blur-md rounded-2xl py-2.5 px-4 border border-espresso-border text-center mx-2 mb-2 shadow-lg">
+            <div class="font-syne font-bold text-xs sm:text-sm text-cream-50 tracking-wide">
+              OM PRAKASH SAMAL
+            </div>
+            <div class="text-[10px] font-mono text-amberAccent mt-0.5">
+              Co-Founder &amp; CFO &bull; AkashVahini UAV
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Floating Badge 1: AI / Machine Learning (Top-Left) -->
+        <div class="floating-badge -top-2 left-0 sm:-left-4 bg-cream-50 border border-cream-border shadow-card-soft text-espresso-950">
+          <i class="fa-solid fa-brain text-amberAccent"></i>
+          <span>AI / Machine Learning</span>
+        </div>
+
+        <!-- Floating Badge 2: IoT & Embedded Systems (Top-Right: Shifted down to keep @OpCode28 clearly visible) -->
+        <div class="floating-badge top-24 sm:top-28 -right-3 sm:-right-6 bg-cream-50 border border-cream-border shadow-card-soft text-espresso-950">
+          <i class="fa-solid fa-satellite-dish text-amberAccent-warm"></i>
+          <span>IoT & Embedded</span>
+        </div>
+
+        <!-- Floating Badge 3: Computer Vision (Center-Left) -->
+        <div class="floating-badge top-48 -left-4 sm:-left-8 bg-cream-50 border border-cream-border shadow-card-soft text-espresso-950">
+          <i class="fa-solid fa-eye text-espresso-800"></i>
+          <span>Computer Vision</span>
+        </div>
+
+        <!-- Floating Badge 4: Full-Stack Development (Bottom-Right) -->
+        <div class="floating-badge bottom-14 -right-2 sm:-right-6 bg-cream-50 border border-cream-border shadow-card-soft text-espresso-950">
+          <i class="fa-solid fa-layer-group text-amberAccent"></i>
+          <span>Full-Stack Dev</span>
+        </div>
+
+        <!-- Floating Badge 5: Startup & Innovation (Bottom-Left) -->
+        <div class="floating-badge -bottom-3 left-6 sm:left-2 bg-espresso-900 text-cream-50 border border-espresso-700 shadow-card-dark">
+          <i class="fa-solid fa-rocket text-amberAccent"></i>
+          <span>Startup & Innovation</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== HORIZONTAL SCROLLING MARQUEE SECTION ==================== -->
+  <div class="w-full bg-espresso-900 border-y border-espresso-border py-4 overflow-hidden select-none relative z-20">
+    <div class="marquee-track flex whitespace-nowrap gap-8 text-xs sm:text-sm font-syne font-bold uppercase tracking-widest text-cream-100">
+      <div class="marquee-content flex items-center gap-8">
+        <span>AI / ML</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>IoT &amp; Sensors</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Computer Vision</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Embedded Systems (ESP32)</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Full-Stack Development</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Startup &amp; Innovation</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>WiFi CSI Sensing</span>
+        <span class="text-amberAccent">&#10022;</span>
+      </div>
+      <!-- Duplicate content for seamless loop -->
+      <div class="marquee-content flex items-center gap-8" aria-hidden="true">
+        <span>AI / ML</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>IoT &amp; Sensors</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Computer Vision</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Embedded Systems (ESP32)</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Full-Stack Development</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>Startup &amp; Innovation</span>
+        <span class="text-amberAccent">&#10022;</span>
+        <span>WiFi CSI Sensing</span>
+        <span class="text-amberAccent">&#10022;</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== ABOUT ME SECTION ==================== -->
+  <section id="about" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    
+    <div class="flex flex-col items-center text-center space-y-3 mb-16">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-amberAccent-warm bg-amberAccent/10 px-3.5 py-1 rounded-full border border-amberAccent/20">
+        ENGINEERING MINDSET
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-syne font-extrabold text-espresso-950 tracking-tight">
+        Building Ideas Into Real-World Technology
+      </h2>
+      <p class="text-ink-600 max-w-2xl text-sm sm:text-base font-normal">
+        A hands-on engineer bridging mathematical algorithms, microcontroller firmware, and venture development.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- Left Side: Professional Narrative -->
+      <div class="lg:col-span-6 space-y-6">
+        <div class="bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-8 space-y-4 shadow-card-soft">
+          <h3 class="text-xl font-syne font-bold text-espresso-950 flex items-center gap-2.5">
+            <i class="fa-solid fa-compass-drafting text-amberAccent"></i>
+            <span>Interdisciplinary Systems Developer</span>
+          </h3>
+          
+          <p class="text-ink-600 text-sm leading-relaxed">
+            I am a final-year Computer Science and Engineering student at <strong class="text-espresso-950">Biju Patnaik University of Technology (BPUT), Rourkela</strong> with an academic performance of <strong class="text-espresso-950 font-mono">8.47 CGPA</strong>.
+          </p>
+          
+          <p class="text-ink-600 text-sm leading-relaxed">
+            I specialize in turning ambitious ideas into working physical prototypes. My work spans extracting Wi-Fi CSI subcarrier data under <strong class="text-espresso-950">DRDO scientists</strong>, training deep CNN defect inspection models at <strong class="text-espresso-950">NALCO</strong> (92% accuracy), and co-founding <strong class="text-espresso-950">AkashVahini Private Limited</strong> (FTBI-incubated at NIT Rourkela).
+          </p>
+
+          <div class="pt-4 border-t border-cream-border space-y-3 font-mono text-xs text-ink-800">
+            <div class="flex justify-between items-center">
+              <span class="text-ink-400">Education:</span>
+              <span class="font-semibold text-espresso-950">B.Tech CSE (2023–2027) &bull; GPA 8.47</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-ink-400">Location:</span>
+              <span>Odisha, India (Available Worldwide)</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-ink-400">Startup:</span>
+              <span class="text-amberAccent-warm font-semibold">AkashVahini (NIT Rourkela FTBI)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side: 4 Elegant Cards Grid -->
+      <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- Card 1 -->
+        <div class="bg-cream-50 hover:bg-white border border-cream-border hover:border-amberAccent/60 rounded-3xl p-5 shadow-card-soft transition group">
+          <div class="w-10 h-10 rounded-2xl bg-amberAccent/15 flex items-center justify-center text-amberAccent text-lg mb-3 group-hover:scale-105 transition">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h4 class="font-syne font-bold text-espresso-950 text-base">CSE Student</h4>
+          <p class="text-ink-600 text-xs mt-1.5 leading-relaxed">
+            Strong foundation in OOP, data structures, algorithms, and 8.47 CGPA at BPUT Rourkela.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-cream-50 hover:bg-white border border-cream-border hover:border-amberAccent/60 rounded-3xl p-5 shadow-card-soft transition group">
+          <div class="w-10 h-10 rounded-2xl bg-espresso-900 flex items-center justify-center text-amberAccent text-lg mb-3 group-hover:scale-105 transition">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <h4 class="font-syne font-bold text-espresso-950 text-base">AI/ML Developer</h4>
+          <p class="text-ink-600 text-xs mt-1.5 leading-relaxed">
+            PyTorch, TensorFlow, Scikit-learn, Random Forest solar prediction, and 96.79% validation accuracy vision models.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-cream-50 hover:bg-white border border-cream-border hover:border-amberAccent/60 rounded-3xl p-5 shadow-card-soft transition group">
+          <div class="w-10 h-10 rounded-2xl bg-amberAccent-warm/15 flex items-center justify-center text-amberAccent-warm text-lg mb-3 group-hover:scale-105 transition">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h4 class="font-syne font-bold text-espresso-950 text-base">IoT Engineer</h4>
+          <p class="text-ink-600 text-xs mt-1.5 leading-relaxed">
+            ESP32, ESP-IDF, C/C++, MQTT protocol, Wi-Fi CSI human sensing, and multi-sensor edge gateways.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-cream-50 hover:bg-white border border-cream-border hover:border-amberAccent/60 rounded-3xl p-5 shadow-card-soft transition group">
+          <div class="w-10 h-10 rounded-2xl bg-espresso-900 flex items-center justify-center text-cream-50 text-lg mb-3 group-hover:scale-105 transition">
+            <i class="fa-solid fa-rocket"></i>
+          </div>
+          <h4 class="font-syne font-bold text-espresso-950 text-base">Startup Co-Founder</h4>
+          <p class="text-ink-600 text-xs mt-1.5 leading-relaxed">
+            Co-Founder & CFO of AkashVahini Pvt. Ltd. (UAV Technology incubated at FTBI, NIT Rourkela).
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== WHAT I DO (EXPANDABLE SERVICE CARDS) ==================== -->
+  <section id="services" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-cream-border">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+      <div>
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-amberAccent-warm">CAPABILITIES & EXPERTISE</span>
+        <h2 class="text-3xl sm:text-5xl font-syne font-extrabold text-espresso-950 tracking-tight mt-1">
+          What I Bring to Life
+        </h2>
+      </div>
+      <p class="text-ink-600 text-xs sm:text-sm font-normal max-w-md">
+        Interactive capabilities spanning deep machine learning models, embedded silicon, and modern software architectures.
+      </p>
+    </div>
+
+    <!-- Expandable 6-Card Service Accordion Grid -->
+    <div class="space-y-4">
+      
+      <!-- Service 01 -->
+      <div class="service-card bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-7 transition-all duration-300 shadow-card-soft cursor-pointer" onclick="toggleService(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="font-syne font-bold text-lg sm:text-2xl text-amberAccent">01</span>
+            <h3 class="font-syne font-bold text-lg sm:text-xl text-espresso-950">AI & Machine Learning</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-espresso-900 transition-transform duration-300 service-icon">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+        </div>
+        <div class="service-details hidden mt-4 pt-4 border-t border-cream-border text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <p>Build predictive models, regression pipelines, and intelligent applications using PyTorch, TensorFlow, Scikit-learn, and Random Forest models for time-series forecasting and telemetry optimization.</p>
+        </div>
+      </div>
+
+      <!-- Service 02 -->
+      <div class="service-card bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-7 transition-all duration-300 shadow-card-soft cursor-pointer" onclick="toggleService(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="font-syne font-bold text-lg sm:text-2xl text-amberAccent">02</span>
+            <h3 class="font-syne font-bold text-lg sm:text-xl text-espresso-950">IoT & Embedded Systems</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-espresso-900 transition-transform duration-300 service-icon">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+        </div>
+        <div class="service-details hidden mt-4 pt-4 border-t border-cream-border text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <p>Develop sensor-based edge nodes, ESP32 firmware in C/C++ with ESP-IDF, low-latency MQTT streaming, and real-time environmental monitoring systems.</p>
+        </div>
+      </div>
+
+      <!-- Service 03 -->
+      <div class="service-card bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-7 transition-all duration-300 shadow-card-soft cursor-pointer" onclick="toggleService(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="font-syne font-bold text-lg sm:text-2xl text-amberAccent">03</span>
+            <h3 class="font-syne font-bold text-lg sm:text-xl text-espresso-950">Computer Vision</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-espresso-900 transition-transform duration-300 service-icon">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+        </div>
+        <div class="service-details hidden mt-4 pt-4 border-t border-cream-border text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <p>Image classification, object detection (YOLOv8, OpenCV), deep CNN architectures, industrial surface defect classification (92% accuracy @ NALCO), and leaf pathology diagnosis.</p>
+        </div>
+      </div>
+
+      <!-- Service 04 -->
+      <div class="service-card bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-7 transition-all duration-300 shadow-card-soft cursor-pointer" onclick="toggleService(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="font-syne font-bold text-lg sm:text-2xl text-amberAccent">04</span>
+            <h3 class="font-syne font-bold text-lg sm:text-xl text-espresso-950">Full-Stack Development</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-espresso-900 transition-transform duration-300 service-icon">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+        </div>
+        <div class="service-details hidden mt-4 pt-4 border-t border-cream-border text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <p>Build modern web applications, interactive dashboards, RESTful APIs, and relational SQL / NoSQL database architectures using React.js, Node.js, Express.js, FastAPI, PostgreSQL, and MongoDB.</p>
+        </div>
+      </div>
+
+      <!-- Service 05 -->
+      <div class="service-card bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-7 transition-all duration-300 shadow-card-soft cursor-pointer" onclick="toggleService(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="font-syne font-bold text-lg sm:text-2xl text-amberAccent">05</span>
+            <h3 class="font-syne font-bold text-lg sm:text-xl text-espresso-950">Data & Analytics</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-espresso-900 transition-transform duration-300 service-icon">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+        </div>
+        <div class="service-details hidden mt-4 pt-4 border-t border-cream-border text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <p>Data collection, statistical preprocessing, visualization (Power BI, Matplotlib), and industrial sensor log analytics (IBM SkillsBuild certified and SAIL Steel Plant experience).</p>
+        </div>
+      </div>
+
+      <!-- Service 06 -->
+      <div class="service-card bg-cream-50 border border-cream-border rounded-3xl p-6 sm:p-7 transition-all duration-300 shadow-card-soft cursor-pointer" onclick="toggleService(this)">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4 sm:gap-6">
+            <span class="font-syne font-bold text-lg sm:text-2xl text-amberAccent">06</span>
+            <h3 class="font-syne font-bold text-lg sm:text-xl text-espresso-950">Product & Startup Development</h3>
+          </div>
+          <div class="w-8 h-8 rounded-full bg-cream-200 flex items-center justify-center text-espresso-900 transition-transform duration-300 service-icon">
+            <i class="fa-solid fa-plus text-xs"></i>
+          </div>
+        </div>
+        <div class="service-details hidden mt-4 pt-4 border-t border-cream-border text-xs sm:text-sm text-ink-600 leading-relaxed">
+          <p>Convert technical engineering concepts into scalable products, manage financial budgets, grant filings, and lead interdisciplinary drone/UAV tech at AkashVahini Pvt. Ltd.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== FEATURED PROJECTS SECTION (LARGE PREMIUM CARDS) ==================== -->
+  <section id="projects" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-cream-border">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+      <div>
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-amberAccent-warm">PORTFOLIO SHOWCASE</span>
+        <h2 class="text-3xl sm:text-5xl font-syne font-extrabold text-espresso-950 tracking-tight mt-1">
+          Selected Work
+        </h2>
+      </div>
+      <p class="text-ink-600 text-xs sm:text-sm max-w-md">
+        Real-world AI, embedded IoT architectures, and defense research prototypes.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      
+      <!-- Project 1: SOURYANOVA -->
+      <div class="bg-cream-50 border border-cream-border rounded-[2.5rem] p-6 sm:p-10 shadow-card-soft hover:shadow-card-dark transition duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-amberAccent/15 text-espresso-900 text-xs font-mono font-bold border border-amberAccent/30">
+                2nd Prize @ VSSUT Hack for Tomorrow
+              </span>
+              <span class="px-3 py-1 rounded-full bg-cream-200 text-ink-800 text-xs font-mono">
+                BPUT Hackathon 2025
+              </span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-syne font-extrabold text-espresso-950">
+              SouryaNova &mdash; AI Solar Optimization
+            </h3>
+
+            <p class="text-ink-600 text-sm leading-relaxed">
+              An intelligent solar energy management system combining IoT sensing, AI-based solar yield forecasting, and automatic panel tilt positioning to maximize solar energy harvesting.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="tech-pill">ESP32 (Wokwi)</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">Random Forest AI</span>
+              <span class="tech-pill">Node.js</span>
+              <span class="tech-pill">MQTT</span>
+              <span class="tech-pill">AWS IoT Core</span>
+              <span class="tech-pill">React.js</span>
+            </div>
+
+            <div class="pt-4 flex items-center gap-4">
+              <a href="https://github.com/OpCode28/Solar-Optimizer" target="_blank" rel="noopener noreferrer" class="btn-espresso">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-right text-amberAccent"></i>
+              </a>
+              <button onclick="openSimulationModal('souryanova')" class="btn-outline">
+                <i class="fa-solid fa-chart-line"></i> Sim & Architecture
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-espresso-900 rounded-3xl p-6 text-cream-50 space-y-3 shadow-card-dark">
+            <div class="flex items-center justify-between text-xs font-mono text-amberAccent border-b border-espresso-border pb-2">
+              <span>SYSTEM ARCHITECTURE</span>
+              <span>LIVE MQTT @ 10Hz</span>
+            </div>
+            <div class="text-xs space-y-2 font-mono text-cream-200">
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Quadrant LDR + Temp</span>
+                <span class="text-amberAccent">Sensor Array</span>
+              </div>
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>ESP32 Dual-Axis Servo</span>
+                <span class="text-cream-50">Edge Tracking</span>
+              </div>
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Random Forest AI Yield</span>
+                <span class="text-amberAccent-warm">R² &gt; 98%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Project 2: WIFI CSI HUMAN SENSING -->
+      <div class="bg-cream-50 border border-cream-border rounded-[2.5rem] p-6 sm:p-10 shadow-card-soft hover:shadow-card-dark transition duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-espresso-900 text-cream-50 text-xs font-mono font-bold">
+                DRDO PXE Research Project
+              </span>
+              <span class="px-3 py-1 rounded-full bg-cream-200 text-ink-800 text-xs font-mono">
+                Camera-Free Sensing
+              </span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-syne font-extrabold text-espresso-950">
+              WiFi CSI Human Sensing System (EAGLE &Delta;)
+            </h3>
+
+            <p class="text-ink-600 text-sm leading-relaxed">
+              A wireless sensing platform analyzing 52 OFDM Wi-Fi Channel State Information (CSI) subcarriers on ESP32 to detect human presence and movement through walls without optical cameras.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="tech-pill">ESP32</span>
+              <span class="tech-pill">ESP-IDF</span>
+              <span class="tech-pill">C/C++</span>
+              <span class="tech-pill">WiFi CSI</span>
+              <span class="tech-pill">Signal Processing</span>
+              <span class="tech-pill">Python</span>
+              <span class="tech-pill">SQLite</span>
+            </div>
+
+            <div class="pt-4 flex items-center gap-4">
+              <a href="https://github.com/OpCode28/EAGLE-DELTA" target="_blank" rel="noopener noreferrer" class="btn-espresso">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-right text-amberAccent"></i>
+              </a>
+              <button onclick="openSimulationModal('csi')" class="btn-outline">
+                <i class="fa-solid fa-wave-square"></i> Signal Pipeline
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-espresso-900 rounded-3xl p-6 text-cream-50 space-y-3 shadow-card-dark">
+            <div class="flex items-center justify-between text-xs font-mono text-amberAccent border-b border-espresso-border pb-2">
+              <span>PHY LAYER SPEC</span>
+              <span>52 SUBCARRIERS</span>
+            </div>
+            <div class="text-xs space-y-2 font-mono text-cream-200">
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Raw OFDM Subcarrier Hook</span>
+                <span class="text-amberAccent">ESP-IDF Promiscuous</span>
+              </div>
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Butterworth Filtering</span>
+                <span class="text-cream-50">0.2 - 5 Hz</span>
+              </div>
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Local SQLite Ingestion</span>
+                <span class="text-amberAccent-warm">Air-Gapped Privacy</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Project 3: MAATI SMART FARMING -->
+      <div class="bg-cream-50 border border-cream-border rounded-[2.5rem] p-6 sm:p-10 shadow-card-soft hover:shadow-card-dark transition duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Content Column -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-emerald-900 text-emerald-200 text-xs font-mono font-bold">
+                Hardware Prototype
+              </span>
+              <span class="px-3 py-1 rounded-full bg-cream-200 text-ink-800 text-xs font-mono">
+                Precision Agriculture &bull; Edge AI
+              </span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-syne font-extrabold text-espresso-950">
+              MAATI &mdash; Smart Farming Assistant
+            </h3>
+
+            <p class="text-ink-600 text-sm leading-relaxed">
+              A hardware-based precision agriculture and smart irrigation system that combines ESP32 multi-sensing, ESP32-CAM crop disease diagnosis (97.3% accuracy), and closed-loop relay pump automation.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="tech-pill">ESP32</span>
+              <span class="tech-pill">ESP32-CAM</span>
+              <span class="tech-pill">Computer Vision</span>
+              <span class="tech-pill">IoT Multi-Sensing</span>
+              <span class="tech-pill">Edge AI</span>
+              <span class="tech-pill">5V Relay &bull; 12V Pump</span>
+              <span class="tech-pill">Supabase</span>
+              <span class="tech-pill">Offline-First</span>
+            </div>
+
+            <div class="pt-4 flex items-center gap-4">
+              <a href="https://github.com/OpCode28" target="_blank" rel="noopener noreferrer" class="btn-espresso">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-right text-amberAccent"></i>
+              </a>
+              <button onclick="openSimulationModal('maati')" class="btn-outline">
+                <i class="fa-solid fa-seedling text-emerald-700"></i> Project Specs
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Visual Summary Column -->
+          <div class="lg:col-span-5 bg-espresso-900 rounded-3xl p-6 text-cream-50 space-y-3 shadow-card-dark">
+            <div class="flex items-center justify-between text-xs font-mono text-amberAccent border-b border-espresso-border pb-2">
+              <span>HARDWARE &bull; AI SUMMARY</span>
+              <span class="text-emerald-400 font-bold">PROTOTYPE</span>
+            </div>
+            
+            <div class="text-xs space-y-2 font-mono text-cream-200">
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex items-center justify-between">
+                <span>AI Vision Accuracy</span>
+                <span class="text-amberAccent font-bold">97.3% (25+ Classes)</span>
+              </div>
+
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex items-center justify-between">
+                <span>Field Sensing Array</span>
+                <span class="text-emerald-400 font-bold">5 Signals (Real-Time)</span>
+              </div>
+
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex items-center justify-between">
+                <span>Physical Actuation</span>
+                <span class="text-blue-400 font-bold">5V Relay &rarr; 12V Pump</span>
+              </div>
+
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex items-center justify-between">
+                <span>Cloud &amp; Edge Sync</span>
+                <span class="text-purple-300 font-bold">Supabase + Offline First</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Project 4: MEDITECH -->
+      <div class="bg-cream-50 border border-cream-border rounded-[2.5rem] p-6 sm:p-10 shadow-card-soft hover:shadow-card-dark transition duration-300">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-full bg-espresso-900 text-amberAccent text-xs font-mono font-bold">
+                <i class="fa-solid fa-book-open mr-1"></i> Published in "The Idea Book"
+              </span>
+              <span class="px-3 py-1 rounded-full bg-cream-200 text-ink-800 text-xs font-mono">
+                ISTE Idea Competition &bull; JIS University
+              </span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-syne font-extrabold text-espresso-950">
+              MediTech &mdash; Centralized Hospital &amp; Healthcare Platform
+            </h3>
+
+            <p class="text-ink-600 text-sm leading-relaxed">
+              A centralized multi-hospital management platform facilitating real-time tracking of ICU beds, blood bank inventories, and specialist physician availability across decentralized health centers. Selected among the Top 10 teams and published in <em>The Idea Book</em> under the ISTE Idea Competition organized by JIS University.
+            </p>
+
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="tech-pill">HTML5 / CSS3</span>
+              <span class="tech-pill">JavaScript</span>
+              <span class="tech-pill">Bootstrap</span>
+              <span class="tech-pill">SQL</span>
+              <span class="tech-pill">Relational DB</span>
+              <span class="tech-pill">REST APIs</span>
+            </div>
+
+            <div class="pt-4 flex items-center gap-4">
+              <a href="https://github.com/OpCode28/MediTech" target="_blank" rel="noopener noreferrer" class="btn-espresso">
+                <span>View Project</span>
+                <i class="fa-solid fa-arrow-right text-amberAccent"></i>
+              </a>
+              <button onclick="openSimulationModal('meditech')" class="btn-outline">
+                <i class="fa-solid fa-database"></i> Database Schema &amp; Specs
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-espresso-900 rounded-3xl p-6 text-cream-50 space-y-3 shadow-card-dark">
+            <div class="flex items-center justify-between text-xs font-mono text-amberAccent border-b border-espresso-border pb-2">
+              <span>HEALTHCARE RELATIONAL DATA</span>
+              <span>TOP 10 JIS UNIVERSITY</span>
+            </div>
+            <div class="text-xs space-y-2 font-mono text-cream-200">
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Bed &amp; Ward Allocation Engine</span>
+                <span class="text-amberAccent">Atomic SQL</span>
+              </div>
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Blood Bank Inventory Ledger</span>
+                <span class="text-cream-50">Real-Time Sync</span>
+              </div>
+              <div class="p-2.5 bg-espresso-850 rounded-xl border border-espresso-border flex justify-between">
+                <span>Doctor On-Call Roster</span>
+                <span class="text-amberAccent-warm font-bold">Dynamic Matching</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== TECHNOLOGY STACK (BENTO GRID: TOOLS I BUILD WITH) ==================== -->
+  <section id="skills" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-cream-border">
+    
+    <div class="flex flex-col items-center text-center space-y-3 mb-16">
+      <span class="text-xs font-mono font-bold uppercase tracking-widest text-amberAccent-warm bg-amberAccent/10 px-3.5 py-1 rounded-full border border-amberAccent/20">
+        CORE TOOLKIT
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-syne font-extrabold text-espresso-950 tracking-tight">
+        Tools I Build With
+      </h2>
+      <p class="text-ink-600 max-w-2xl text-sm sm:text-base">
+        Applied across firmware, high-throughput cloud backends, and deep learning pipelines.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3.5">
+      
+      <div class="tool-card"><i class="fa-brands fa-python text-amberAccent text-xl"></i><span>Python</span></div>
+      <div class="tool-card"><i class="fa-solid fa-c text-espresso-900 text-xl"></i><span>C / C++</span></div>
+      <div class="tool-card"><i class="fa-brands fa-js text-amberAccent text-xl"></i><span>JavaScript</span></div>
+      <div class="tool-card"><i class="fa-brands fa-react text-cyan-600 text-xl"></i><span>React</span></div>
+      <div class="tool-card"><i class="fa-brands fa-node text-emerald-600 text-xl"></i><span>Node.js</span></div>
+      <div class="tool-card"><i class="fa-solid fa-database text-emerald-700 text-xl"></i><span>MongoDB</span></div>
+      <div class="tool-card"><i class="fa-solid fa-server text-blue-700 text-xl"></i><span>PostgreSQL</span></div>
+      
+      <div class="tool-card"><i class="fa-solid fa-brain text-amberAccent-warm text-xl"></i><span>TensorFlow</span></div>
+      <div class="tool-card"><i class="fa-solid fa-fire text-amberAccent-warm text-xl"></i><span>PyTorch</span></div>
+      <div class="tool-card"><i class="fa-solid fa-eye text-indigo-600 text-xl"></i><span>OpenCV</span></div>
+      <div class="tool-card"><i class="fa-solid fa-crosshairs text-purple-600 text-xl"></i><span>YOLO</span></div>
+      <div class="tool-card"><i class="fa-solid fa-microchip text-amberAccent text-xl"></i><span>ESP32</span></div>
+      <div class="tool-card"><i class="fa-brands fa-aws text-amberAccent-warm text-xl"></i><span>AWS</span></div>
+      <div class="tool-card"><i class="fa-brands fa-git-alt text-red-600 text-xl"></i><span>Git & GitHub</span></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== FOUNDER / INNOVATION SECTION (DISTINCTIVE DARK ESPRESSO) ==================== -->
+  <section id="founder" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    
+    <div class="bg-gradient-to-br from-espresso-950 via-espresso-900 to-espresso-850 text-cream-50 rounded-[3rem] p-8 sm:p-14 shadow-card-dark border border-espresso-border relative overflow-hidden">
+      
+      <!-- Background Ambient Glow -->
+      <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-amberAccent/10 blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-8 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-espresso-800 text-amberAccent border border-espresso-700 text-xs font-mono font-bold">
+            <i class="fa-solid fa-building-flag"></i>
+            <span>STARTUP CO-FOUNDER & CFO</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl font-syne font-extrabold text-cream-50 tracking-tight">
+            From Prototype to Product
+          </h2>
+
+          <div class="text-amberAccent font-syne font-bold text-lg sm:text-xl">
+            AkashVahini Private Limited &bull; UAV / Drone Technology
+          </div>
+
+          <p class="text-cream-200/90 text-sm sm:text-base leading-relaxed max-w-2xl font-light">
+            Incubated at <strong class="text-white font-semibold">Foundation of Technology and Business Incubation (FTBI), NIT Rourkela</strong>. Leading startup development, financial budgeting, and cross-functional coordination for autonomous drone perception and embedded telemetry.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-espresso-850/80 border border-espresso-border">
+              <div class="font-syne font-bold text-amberAccent text-sm mb-1">Business & Strategy</div>
+              <p class="text-cream-200/80 text-xs">Financial modeling, incubation grant filings, compliance, and governance.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-espresso-850/80 border border-espresso-border">
+              <div class="font-syne font-bold text-cream-50 text-sm mb-1">UAV Technology</div>
+              <p class="text-cream-200/80 text-xs">Integration of embedded AI payloads, telemetry, and flight hardware.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 bg-espresso-950/80 rounded-3xl p-6 border border-espresso-border space-y-4">
+          <div class="text-xs font-mono text-amberAccent uppercase tracking-wider">INCUBATION BACKING</div>
+          <div class="font-syne font-bold text-white text-base">FTBI, NIT Rourkela</div>
+          <p class="text-cream-200/70 text-xs leading-relaxed">
+            Institutional support providing advanced lab infrastructure, technology mentorship, and investor incubation access.
+          </p>
+          <div class="pt-2 border-t border-espresso-border text-[11px] font-mono text-cream-200/60">
+            Dec 2025 &ndash; Present &bull; Rourkela, Odisha
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== EXPERIENCE & ACHIEVEMENTS TIMELINE ==================== -->
+  <section id="experience" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-cream-border">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+      <div>
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-amberAccent-warm">TRACK RECORD</span>
+        <h2 class="text-3xl sm:text-5xl font-syne font-extrabold text-espresso-950 tracking-tight mt-1">
+          Experience & Achievements
+        </h2>
+      </div>
+      <p class="text-ink-600 text-xs sm:text-sm max-w-md">
+        Defense laboratory research, industrial manufacturing CV, and hackathon honors.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      
+      <!-- Experience Column -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- DRDO PXE -->
+        <div class="bg-cream-50 border border-cream-border rounded-3xl p-6 shadow-card-soft space-y-2">
+          <div class="flex justify-between items-start text-xs font-mono text-ink-400">
+            <span>DRDO PXE (Proof & Experimental Establishment)</span>
+            <span class="text-amberAccent-warm font-bold">Jun–Jul 2026</span>
+          </div>
+          <h3 class="font-syne font-bold text-espresso-950 text-lg">Research Intern &mdash; Contactless Wi-Fi CSI Sensing</h3>
+          <p class="text-ink-600 text-xs sm:text-sm leading-relaxed">
+            Built an embedded platform on ESP32, ESP-IDF, and SQLite under defense scientists for real-time subcarrier signal acquisition and device-free human motion detection.
+          </p>
+        </div>
+
+        <!-- NALCO -->
+        <div class="bg-cream-50 border border-cream-border rounded-3xl p-6 shadow-card-soft space-y-2">
+          <div class="flex justify-between items-start text-xs font-mono text-ink-400">
+            <span>National Aluminium Company Limited (NALCO)</span>
+            <span class="text-amberAccent-warm font-bold">Jun–Jul 2025</span>
+          </div>
+          <h3 class="font-syne font-bold text-espresso-950 text-lg">Computer Vision & AI Intern</h3>
+          <p class="text-ink-600 text-xs sm:text-sm leading-relaxed">
+            Developed an automated aluminium surface defect detection model using Python, OpenCV, and deep learning, achieving <strong class="text-espresso-950">92% classification accuracy (~87% confidence)</strong>.
+          </p>
+        </div>
+
+        <!-- Rourkela Steel Plant & Programs -->
+        <div class="bg-cream-50 border border-cream-border rounded-3xl p-6 shadow-card-soft space-y-2">
+          <div class="flex justify-between items-start text-xs font-mono text-ink-400">
+            <span>SAIL Rourkela Steel Plant &bull; FITT IIT Delhi &bull; IBM</span>
+            <span>Programs</span>
+          </div>
+          <h3 class="font-syne font-bold text-espresso-950 text-lg">Industrial Training & 80h 5G IoT Builder</h3>
+          <p class="text-ink-600 text-xs sm:text-sm leading-relaxed">
+            Industrial data systems at SAIL, 80-hour AI Powered 5G IoT Builder at FITT IIT Delhi, and IBM SkillsBuild Data Analytics certification.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Achievements Column -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <div class="bg-espresso-900 text-cream-50 rounded-3xl p-6 shadow-card-dark space-y-4 border border-espresso-border">
+          <div class="text-xs font-mono text-amberAccent font-bold uppercase tracking-wider">
+            <i class="fa-solid fa-trophy mr-1"></i> VERIFIED HONORS
+          </div>
+
+          <div class="space-y-3.5 text-xs font-mono text-cream-200">
+            <div class="p-3 bg-espresso-850 rounded-2xl border border-espresso-border">
+              <div class="text-amberAccent font-bold">1st Place &bull; BPUT Hackathon 2024</div>
+              <p class="text-cream-200/70 text-[11px] mt-0.5">Accessibility Track Champion among 137 competing teams.</p>
+            </div>
+
+            <div class="p-3 bg-espresso-850 rounded-2xl border border-espresso-border">
+              <div class="text-amberAccent font-bold">2nd Place &bull; VSSUT Hack for Tomorrow</div>
+              <p class="text-cream-200/70 text-[11px] mt-0.5">SouryaNova solar optimization in Top 10 finalists.</p>
+            </div>
+
+            <div class="p-3 bg-espresso-850 rounded-2xl border border-espresso-border">
+              <div class="text-amberAccent font-bold">Published in "The Idea Book" &bull; JIS University</div>
+              <p class="text-cream-200/70 text-[11px] mt-0.5">Top 10 team in ISTE Idea Competition with MediTech healthcare platform.</p>
+            </div>
+
+            <div class="p-3 bg-espresso-850 rounded-2xl border border-espresso-border">
+              <div class="text-amberAccent font-bold">Top 50 National &bull; Trithon 2026</div>
+              <p class="text-cream-200/70 text-[11px] mt-0.5">Shortlisted from 495 teams across India.</p>
+            </div>
+
+            <div class="p-3 bg-espresso-850 rounded-2xl border border-espresso-border">
+              <div class="text-amberAccent font-bold">Silver Badge &bull; NPTEL OOP (75%)</div>
+              <p class="text-cream-200/70 text-[11px] mt-0.5">Fundamentals of Object-Oriented Programming.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section id="contact" class="py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 border-t border-cream-border">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Contact Info -->
+      <div class="lg:col-span-5 space-y-6">
+        <div>
+          <span class="text-xs font-mono font-bold uppercase tracking-widest text-amberAccent-warm">GET IN TOUCH</span>
+          <h2 class="text-4xl sm:text-6xl font-syne font-extrabold text-espresso-950 tracking-tight leading-none mt-1">
+            Have an Idea? <br />
+            <span class="text-amberAccent-warm">Let's Build It.</span>
+          </h2>
+          <p class="text-ink-600 text-sm sm:text-base mt-3 font-normal max-w-md">
+            I'm open to full-time roles, research collaborations, IoT & embedded prototyping, and startup engineering.
+          </p>
+        </div>
+
+        <div class="space-y-3 font-mono text-xs sm:text-sm">
+          
+          <a href="mailto:omprakashsamal28@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-cream-50 border border-cream-border hover:border-amberAccent transition shadow-sm group">
+            <div class="flex items-center gap-3">
+              <i class="fa-regular fa-envelope text-amberAccent text-base"></i>
+              <span class="text-espresso-950 font-semibold group-hover:text-amberAccent-warm transition">omprakashsamal28@gmail.com</span>
+            </div>
+            <i class="fa-solid fa-arrow-right text-ink-400 group-hover:translate-x-1 transition"></i>
+          </a>
+
+          <a href="tel:+919938174108" class="flex items-center justify-between p-4 rounded-2xl bg-cream-50 border border-cream-border hover:border-amberAccent transition shadow-sm group">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-amberAccent text-base"></i>
+              <span class="text-espresso-950 font-semibold">+91 9938174108</span>
+            </div>
+            <i class="fa-solid fa-arrow-right text-ink-400 group-hover:translate-x-1 transition"></i>
+          </a>
+
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://linkedin.com/in/om-prakash-samal" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 text-center rounded-2xl bg-cream-50 border border-cream-border hover:border-amberAccent font-bold text-espresso-950 text-xs flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-linkedin text-blue-600"></i> LinkedIn
+            </a>
+            <a href="https://github.com/OpCode28" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 text-center rounded-2xl bg-cream-50 border border-cream-border hover:border-amberAccent font-bold text-espresso-950 text-xs flex items-center justify-center gap-2 transition shadow-sm">
+              <i class="fa-brands fa-github text-espresso-950"></i> GitHub
+            </a>
+            <button onclick="openResumeModal()" class="flex-1 py-3 text-center rounded-2xl bg-espresso-900 text-cream-50 font-bold text-xs flex items-center justify-center gap-2 hover:bg-espresso-800 transition shadow-sm">
+              <i class="fa-solid fa-file-pdf text-amberAccent"></i> Resume
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Contact Form -->
+      <div class="lg:col-span-7 bg-cream-50 border border-cream-border rounded-[2.5rem] p-6 sm:p-10 shadow-card-soft">
+        <h3 class="font-syne font-bold text-espresso-950 text-xl mb-6">Send a Direct Message</h3>
+
+        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-xs font-mono text-ink-600 mb-1.5 font-semibold">YOUR NAME *</label>
+              <input type="text" id="name" required placeholder="Dr. Jane Doe / Recruiter" class="form-input" />
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-mono text-ink-600 mb-1.5 font-semibold">YOUR EMAIL *</label>
+              <input type="email" id="email" required placeholder="name@company.com" class="form-input" />
+            </div>
+          </div>
+
+          <div>
+            <label for="subject" class="block text-xs font-mono text-ink-600 mb-1.5 font-semibold">TOPIC</label>
+            <select id="subject" class="form-input bg-cream-50">
+              <option value="AI/ML Role">AI / ML Opportunity</option>
+              <option value="IoT & Hardware Prototyping">IoT & Embedded Systems Collaboration</option>
+              <option value="Startup Inquiry (AkashVahini)">Startup & Venture Discussion</option>
+              <option value="Research & Defense">Research & Defense R&D</option>
+              <option value="General Conversation">General Engineering Chat</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-mono text-ink-600 mb-1.5 font-semibold">MESSAGE *</label>
+            <textarea id="message" rows="4" required placeholder="Tell me about your project, team, or opportunity..." class="form-input resize-none"></textarea>
+          </div>
+
+          <button type="submit" id="submit-btn" class="w-full py-4 rounded-full bg-espresso-900 hover:bg-espresso-800 text-cream-50 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-card-soft transition">
+            <i class="fa-solid fa-paper-plane text-amberAccent"></i>
+            <span>Send Message</span>
+          </button>
+
+          <div id="form-feedback" class="hidden p-4 rounded-2xl text-xs font-mono text-center"></div>
+        </form>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ==================== FOOTER (MINIMAL DARK ESPRESSO) ==================== -->
+  <footer class="bg-espresso-950 text-cream-100 py-12 px-4 sm:px-8 border-t border-espresso-border relative z-10">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-amberAccent text-espresso-950 flex items-center justify-center font-syne font-bold text-xs">
+          OP
+        </div>
+        <div>
+          <div class="font-syne font-bold text-sm text-cream-50">&copy; 2026 Om Prakash</div>
+          <div class="text-[11px] font-mono text-espresso-muted">AI &bull; IoT &bull; Software &bull; Innovation</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs font-mono text-cream-200">
+        <a href="https://github.com/OpCode28" target="_blank" rel="noopener noreferrer" class="hover:text-amberAccent transition">GitHub</a>
+        <a href="https://linkedin.com/in/om-prakash-samal" target="_blank" rel="noopener noreferrer" class="hover:text-amberAccent transition">LinkedIn</a>
+        <a href="mailto:omprakashsamal28@gmail.com" class="hover:text-amberAccent transition">Email</a>
+        <button onclick="openResumeModal()" class="hover:text-amberAccent transition">Resume</button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==================== RESUME MODAL VIEWER ==================== -->
+  <div id="resume-modal" class="modal-overlay hidden fixed inset-0 z-50 bg-espresso-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-cream-50 border border-cream-border rounded-3xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-card-dark overflow-hidden">
+      
+      <div class="flex items-center justify-between p-4 sm:p-5 border-b border-cream-border bg-cream-100">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-file-invoice text-amberAccent text-lg"></i>
+          <div>
+            <h3 class="font-syne font-bold text-espresso-950 text-base">Om Prakash Samal &mdash; Curriculum Vitae</h3>
+            <span class="text-[11px] font-mono text-ink-600">B.Tech CSE @ BPUT &bull; CGPA: 8.47</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="printOrDownloadResume()" class="px-3.5 py-1.5 rounded-full bg-espresso-900 text-cream-50 font-bold hover:bg-espresso-800 text-xs font-mono flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-download text-amberAccent"></i> Print / PDF
+          </button>
+          <button onclick="closeResumeModal()" class="w-8 h-8 rounded-full bg-cream-200 text-espresso-900 hover:bg-cream-300 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="printable-resume-content" class="p-6 sm:p-8 overflow-y-auto space-y-6 text-ink-900 text-xs sm:text-sm font-sans">
+        
+        <div class="border-b border-cream-border pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h1 class="text-2xl font-bold font-syne text-espresso-950">OM PRAKASH SAMAL</h1>
+            <p class="text-amberAccent-warm font-mono text-xs mt-0.5">AI/ML Developer | IoT & Embedded Systems Developer</p>
+          </div>
+          <div class="text-right font-mono text-xs space-y-0.5 text-ink-600">
+            <div>Phone: +91 9938174108</div>
+            <div>Email: omprakashsamal28@gmail.com</div>
+            <div>GitHub: github.com/OpCode28 | LinkedIn: in/om-prakash-samal</div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-mono font-bold text-espresso-950 text-xs uppercase tracking-wider border-b border-cream-border pb-1 mb-2">EDUCATION</h2>
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="font-bold text-espresso-950">B.Tech in Computer Science & Engineering</div>
+              <div class="text-ink-600">Biju Patnaik University of Technology (BPUT), Rourkela</div>
+            </div>
+            <div class="text-right font-mono text-xs">
+              <span class="text-amberAccent-warm font-bold">GPA: 8.47</span> &bull; 2023–2027
+            </div>
+          </div>
+          <div class="flex justify-between items-start mt-2">
+            <div>
+              <div class="font-bold text-espresso-950">12th Standard (CBSE)</div>
+              <div class="text-ink-600">Kendriya Vidyalaya No.2 Srivijaynagar</div>
+            </div>
+            <div class="text-right font-mono text-xs">
+              <span class="text-ink-600">81.67%</span> &bull; 2023
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-mono font-bold text-espresso-950 text-xs uppercase tracking-wider border-b border-cream-border pb-1 mb-2">WORK & RESEARCH EXPERIENCE</h2>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between font-bold text-espresso-950">
+                <span>AKASHVAHINI PRIVATE LIMITED &mdash; Co-Founder & CFO</span>
+                <span class="font-mono text-xs text-ink-600">Dec 2025 &ndash; Present</span>
+              </div>
+              <div class="text-ink-600 italic text-xs">FTBI-incubated UAV startup, NIT Rourkela</div>
+              <p class="text-ink-800 text-xs mt-1">Lead business strategy, budgeting, incubation grants, and cross-functional coordination for AI, IoT, and UAV development.</p>
+            </div>
+            <div>
+              <div class="flex justify-between font-bold text-espresso-950">
+                <span>DRDO PXE &mdash; Research Intern (Wi-Fi CSI Contactless Sensing)</span>
+                <span class="font-mono text-xs text-amberAccent-warm">Jun 2026 &ndash; Jul 2026</span>
+              </div>
+              <div class="text-ink-600 italic text-xs">Proof & Experimental Establishment, Balasore, Odisha</div>
+              <p class="text-ink-800 text-xs mt-1">Built ESP32 embedded sensing platform using ESP-IDF and SQLite for real-time Wi-Fi CSI subcarrier extraction and device-free human motion detection.</p>
+            </div>
+            <div>
+              <div class="flex justify-between font-bold text-espresso-950">
+                <span>NATIONAL ALUMINIUM COMPANY LIMITED (NALCO) &mdash; CV Intern</span>
+                <span class="font-mono text-xs text-ink-600">Jun 2025 &ndash; Jul 2025</span>
+              </div>
+              <div class="text-ink-600 italic text-xs">Angul, Odisha</div>
+              <p class="text-ink-800 text-xs mt-1">Developed AI surface defect detection system achieving 92% classification accuracy (~87% confidence) using Python, OpenCV, and deep learning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-mono font-bold text-espresso-950 text-xs uppercase tracking-wider border-b border-cream-border pb-1 mb-2">FEATURED PROJECTS</h2>
+          <div class="space-y-2 text-xs">
+            <div>
+              <span class="font-bold text-espresso-950">MediTech: Centralized Hospital Information Platform</span> &bull; <span class="text-ink-600 font-mono text-[11px]">HTML5, CSS3, JS, Bootstrap, SQL</span>
+              <p class="text-ink-800 text-[11px]">Real-time hospital bed and blood bank inventory tracking system. Ranked Top 10 and published in <em>"The Idea Book"</em> under ISTE Idea Competition (JIS University).</p>
+            </div>
+            <div>
+              <span class="font-bold text-espresso-950">EAGLE &Delta;: Contactless Indoor Sensing via Wi-Fi CSI</span> &bull; <span class="text-ink-600 font-mono text-[11px]">ESP32, ESP-IDF, C/C++, Python, SQLite</span>
+              <p class="text-ink-800 text-[11px]">Camera-free indoor sensing system extracting subcarrier amplitude data for human presence detection under DRDO scientists.</p>
+            </div>
+            <div>
+              <span class="font-bold text-espresso-950">SouryaNova: AI-Powered Solar Optimization</span> &bull; <span class="text-ink-600 font-mono text-[11px]">ESP32, MQTT, Node.js, Python, Random Forest</span>
+              <p class="text-ink-800 text-[11px]">IoT solar panel management with Random Forest yield forecasting and dual-axis automated positioning.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-mono font-bold text-espresso-950 text-xs uppercase tracking-wider border-b border-cream-border pb-1 mb-2">HONORS & AWARDS</h2>
+          <ul class="list-disc list-inside space-y-1 text-xs text-ink-800">
+            <li><strong class="text-espresso-950">BPUT Hackathon 2024 (PS-1 Winner):</strong> 1st Place in Accessibility Track among 137 teams.</li>
+            <li><strong class="text-espresso-950">Hack for Tomorrow 2026 (VSSUT):</strong> 2nd Place among Top 10 finalist teams.</li>
+            <li><strong class="text-espresso-950">JIS University Ideathon (ISTE):</strong> Top 10 team, idea published in <em>The Idea Book</em> (MediTech).</li>
+            <li><strong class="text-espresso-950">Trithon 2026 Finalist:</strong> Top 50 teams from 495 teams across India.</li>
+            <li><strong class="text-espresso-950">NPTEL Silver Badge:</strong> Fundamental of OOP (Score 75%).</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==================== PROJECT SIMULATION & CASE STUDY MODAL ==================== -->
+  <div id="sim-modal" class="modal-overlay hidden fixed inset-0 z-50 bg-espresso-950/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6">
+    <div class="bg-cream-50 border border-cream-border rounded-3xl w-full max-w-5xl xl:max-w-6xl max-h-[94vh] flex flex-col shadow-card-dark overflow-hidden transition-all duration-300">
+      
+      <div class="flex items-center justify-between p-4 sm:p-5 border-b border-cream-border bg-cream-100/90 backdrop-blur-sm shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-espresso-900 flex items-center justify-center text-amberAccent text-base shadow-sm">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <div>
+            <h3 id="sim-title" class="font-syne font-bold text-espresso-950 text-base sm:text-lg">Project Simulation</h3>
+            <span id="sim-subtitle" class="text-[11px] font-mono text-ink-600">Interactive Specs &amp; Engineering Case Study</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="closeSimulationModal()" class="w-8 h-8 rounded-full bg-cream-200 text-espresso-900 hover:bg-cream-300 flex items-center justify-center transition" aria-label="Close modal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="sim-body" class="p-4 sm:p-8 overflow-y-auto space-y-8 text-ink-800 text-xs sm:text-sm custom-scrollbar"></div>
+
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

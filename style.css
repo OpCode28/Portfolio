@@ -1,0 +1,263 @@
+/* ==========================================================================
+   OM PRAKASH SAMAL — WARM CREAM & ESPRESSO DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  --cream-bg: #F5F0E6;
+  --cream-card: #FAF7F2;
+  --cream-border: #E3DAC9;
+  --espresso-dark: #17120E;
+  --espresso-card: #1E1813;
+  --amber-accent: #F5A623;
+  --amber-warm: #E8633A;
+  --text-dark: #171412;
+  --text-muted: #5E564F;
+}
+
+html {
+  background-color: var(--cream-bg);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--cream-bg);
+  overflow-x: hidden;
+}
+
+/* Subtle Grain Texture Overlay */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CEBC;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--espresso-dark);
+}
+
+/* Floating Badges in Hero */
+.floating-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  z-index: 20;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-badge:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* Marquee Track */
+.marquee-track {
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tool & Tech Stack Cards */
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0.75rem;
+  border-radius: 1.25rem;
+  background-color: var(--cream-card);
+  border: 1px solid var(--cream-border);
+  box-shadow: 0 4px 12px rgba(23, 18, 14, 0.03);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: all 0.25s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--amber-accent);
+  box-shadow: 0 10px 24px -6px rgba(245, 166, 35, 0.25);
+  background-color: #ffffff;
+}
+
+/* Tech Pills */
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  background-color: #EFE8DC;
+  color: #17120E;
+  border: 1px solid #E3DAC9;
+}
+
+/* Buttons */
+.btn-espresso {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 9999px;
+  background-color: var(--espresso-dark);
+  color: #FAF7F2;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.btn-espresso:hover {
+  background-color: #2D241C;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 9999px;
+  background-color: var(--cream-card);
+  border: 1px solid var(--cream-border);
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: #ffffff;
+  border-color: var(--amber-accent);
+}
+
+/* Service Expandable Cards */
+.service-card {
+  cursor: pointer;
+}
+
+.service-card:hover {
+  border-color: var(--amber-accent);
+}
+
+.service-card.open .service-icon {
+  transform: rotate(45deg);
+  background-color: var(--espresso-dark);
+  color: #FAF7F2;
+}
+
+/* Form Inputs */
+.form-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  background-color: #FAF7F2;
+  border: 1px solid var(--cream-border);
+  color: var(--text-dark);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--amber-accent);
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.2);
+  background-color: #ffffff;
+}
+
+/* Toast styling */
+.toast-msg {
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  backdrop-filter: blur(8px);
+  animation: slideIn 0.3s ease forwards;
+  pointer-events: auto;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #D8CEBC;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #17120E;
+}
+
+/* Print Styles for Resume */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #resume-modal,
+  #printable-resume-content,
+  #printable-resume-content * {
+    visibility: visible;
+    color: #000000 !important;
+    background: #ffffff !important;
+  }
+  #printable-resume-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    border: none;
+  }
+}
