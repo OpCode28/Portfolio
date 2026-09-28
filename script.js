@@ -344,31 +344,59 @@ function showToast(message, type = 'info') {
   }, 3500);
 }
 
-/* ==================== CONTACT FORM HANDLER ==================== */
-function handleContactSubmit(e) {
+/* ==================== CONTACT FORM HANDLER (FORMSPREE INTEGRATION) ==================== */
+async function handleContactSubmit(e) {
   e.preventDefault();
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
   const feedback = document.getElementById('form-feedback');
 
   const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
   const subject = document.getElementById('subject').value;
   const message = document.getElementById('message').value;
 
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending message...';
 
-  setTimeout(() => {
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = '<i class="fa-solid fa-check text-amberAccent"></i> Message Sent';
+  try {
+    const response = await fetch('https://formspree.io/f/xppwkqkv', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        subject: subject,
+        message: message,
+        _replyto: email
+      })
+    });
 
-    feedback.className = 'p-4 rounded-2xl text-xs font-mono text-center bg-espresso-900 text-cream-50 border border-espresso-border block mt-3';
+    if (response.ok) {
+      submitBtn.innerHTML = '<i class="fa-solid fa-check text-amberAccent"></i> Message Sent!';
+      feedback.className = 'p-4 rounded-2xl text-xs font-mono text-center bg-espresso-900 text-cream-50 border border-emerald-500/50 block mt-3 shadow-sm';
+      feedback.innerHTML = `
+        <div class="text-emerald-400 font-bold mb-1"><i class="fa-solid fa-circle-check"></i> Thank you, ${name}!</div>
+        <div class="text-cream-200/90 text-[11px]">Your message was delivered directly to Om Prakash's inbox. I'll get back to you shortly at <span class="text-amberAccent font-bold">${email}</span>.</div>
+      `;
+      showToast('Message sent directly to Om Prakash!', 'success');
+      form.reset();
+    } else {
+      const data = await response.json();
+      throw new Error(data.error || 'Submission failed');
+    }
+  } catch (error) {
+    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane text-amberAccent"></i> Send Message';
+    feedback.className = 'p-4 rounded-2xl text-xs font-mono text-center bg-red-950 text-red-200 border border-red-500/50 block mt-3';
     feedback.innerHTML = `
-      <div><strong>Thank you, ${name}!</strong> Your message was formatted.</div>
-      <div class="mt-1 text-[11px] text-cream-200/80">You can also reach out directly via email at <a href="mailto:omprakashsamal28@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}" class="text-amberAccent underline font-bold">omprakashsamal28@gmail.com</a>.</div>
+      <div class="font-bold mb-1"><i class="fa-solid fa-circle-exclamation text-red-400"></i> Unable to send message automatically.</div>
+      <div class="text-[11px] text-red-300/90">Please send an email directly to <a href="mailto:omprakashsamal28@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}" class="text-amberAccent underline font-bold">omprakashsamal28@gmail.com</a>.</div>
     `;
-
-    showToast('Message formatted successfully!', 'success');
-    form.reset();
-  }, 800);
+    showToast('Failed to send message. Please try direct email.', 'error');
+  } finally {
+    submitBtn.disabled = false;
+  }
 }
